@@ -1,5 +1,4 @@
-DMOJ Judge [![Linux Build Status](https://img.shields.io/github/workflow/status/DMOJ/judge-server/build?logo=github)](https://github.com/DMOJ/judge-server/actions?query=workflow%3Abuild) [![FreeBSD Build Status](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.dmoj.ca%2Fview%2FDMOJ%2Fjob%2Fdmoj-judge-freebsd-py3%2F&logo=freebsd)](https://ci.dmoj.ca/view/DMOJ/job/dmoj-judge-freebsd-py3/) [![Coverage](https://img.shields.io/codecov/c/github/DMOJ/judge-server.svg)](https://codecov.io/gh/DMOJ/judge-server) [![Slack](https://slack.dmoj.ca/badge.svg)](https://slack.dmoj.ca)
-=====
+# DMOJ Judge [![Linux Build Status](https://img.shields.io/travis/SchOJ/judge.svg?logo=linux)](https://travis-ci.org/SchOJ/judge)
 
 Python [AGPLv3](LICENSE) contest judge backend for the [DMOJ site](http://github.com/DMOJ/online-judge) interface. See it in action at [dmoj.ca](https://dmoj.ca/)!
 
