@@ -4,6 +4,7 @@ from dmoj.executors.script_executor import ScriptExecutor
 class Executor(ScriptExecutor):
     ext = 'pl'
     command = 'swipl'
+    syscalls = ['clock_nanosleep', 'openat']
     test_program = """
     :- set_prolog_flag(verbose,silent).
     :- prompt(_, '').
