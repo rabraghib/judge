@@ -155,6 +155,8 @@ class Problem:
             return graders.SignatureGrader
         elif 'interactive' in self.config:
             return graders.BridgedInteractiveGrader
+        elif 'unit_test' in self.config:
+            return graders.UnitTestGrader
         else:
             return graders.StandardGrader
 
