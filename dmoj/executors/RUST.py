@@ -84,6 +84,7 @@ class Executor(CompiledExecutor):
     compiler_write_fs = [
         RecursiveDir('~/.cargo'),
     ]
+    syscalls = ['poll']
 
     def create_files(self, problem_id, source_code, *args, **kwargs):
         os.mkdir(self._file('src'))
