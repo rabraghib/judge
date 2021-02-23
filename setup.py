@@ -160,8 +160,8 @@ with io.open(os.path.join(os.path.dirname(__file__), 'README.md'), encoding='utf
     readme = f.read()
 
 setup(
-    name='dmoj',
-    version='3.0.2',
+    name='dmoj-sch',
+    version='2022.01a.3.0.2',
     packages=find_packages(),
     package_data={
         'dmoj.cptbox': ['syscalls/aliases.list', 'syscalls/*.tbl'],
