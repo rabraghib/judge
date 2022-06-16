@@ -33,7 +33,7 @@ class UnitTestGrader(BaseGrader):
         process = self._current_proc
 
         self.populate_result(error, result, process)
-        
+
         if result.result_flag & Result.IR:
             result.result_flag = Result.WA
         if result.result_flag == Result.AC:
@@ -85,7 +85,7 @@ class UnitTestGrader(BaseGrader):
         return error
 
     def _generate_binary(self):
-        unitTestFile = open(os.path.join(get_problem_root(self.problem.id), self.problem.config['unit_test']),'r')
+        unitTestFile = open(os.path.join(get_problem_root(self.problem.id), self.problem.config['unit_test']), 'r')
         unitTestCode = unitTestFile.read()
         unitTestFile.close()
         finalCode = self.source.decode() + '\n\n' + unitTestCode
