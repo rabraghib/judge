@@ -154,8 +154,9 @@ cdef int pt_child(void *context) nogil:
 cdef int pt_syscall_handler(void *context, int syscall) nogil:
     return (<Process>context)._syscall_handler(syscall)
 
-cdef void pt_syscall_return_handler(void *context, pid_t pid, int syscall) with gil:
+cdef int pt_syscall_return_handler(void *context, pid_t pid, int syscall) with gil:
     (<Debugger>context)._on_return(pid, syscall)
+    return 0
 
 cdef int pt_event_handler(void *context, int event, unsigned long param) nogil:
     return (<Process>context)._event_handler(event, param)
