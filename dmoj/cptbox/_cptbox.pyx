@@ -154,9 +154,9 @@ cdef int pt_child(void *context) nogil:
 cdef int pt_syscall_handler(void *context, int syscall) nogil:
     return (<Process>context)._syscall_handler(syscall)
 
-cdef int pt_syscall_return_handler(void *context, pid_t pid, int syscall) with gil:
-    (<Debugger>context)._on_return(pid, syscall)
-    return 0
+cdef void pt_syscall_return_handler(void *context, pid_t pid, int syscall) nogil:
+    with gil:
+        (<Debugger>context)._on_return(pid, syscall)
 
 cdef int pt_event_handler(void *context, int event, unsigned long param) nogil:
     return (<Process>context)._event_handler(event, param)
@@ -403,7 +403,7 @@ cdef class Debugger:
 
     def on_return(self, callback):
         self.on_return_callback[self.tid] = callback
-        self.thisptr.on_return(pt_syscall_return_handler, <void*>self)
+        self.thisptr.on_return(<pt_syscall_return_callback>pt_syscall_return_handler, <void*>self)
 
     cdef _on_return(self, pid_t pid, int syscall) with gil:
         self.on_return_callback[pid]()
